@@ -1,0 +1,36 @@
+<h3>Add show</h3>
+<% @a = @movie.shows.build() %>
+<div class="row">
+<div class="col-lg-6">
+<%= form_for([:admin, @movie, @a], html: {class: "form-horizontal"}) do |f| %>
+   <div class="form-group">
+    <label class="col-sm-2 control-label">Price</label>
+      <div class="col-sm-10">
+      <%= f.text_field :price, class: "form-control" %>
+      </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Screen-id</label>
+      <div class="col-sm-10">
+      <%= f.text_field :screen_id, class: "form-control" %>
+      </div>
+  </div>
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Date and time</label>
+		<div class="col-sm-10">
+		    <div class='input-group date datetimepicker' data-date-format="DD/MM/YYYY LT">
+		        <%= f.text_field :start, class: "form-control"%>
+		        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+		        </span>
+		    </div>
+	    </div>
+	</div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+     <%= f.button :submit, class: "btn btn-default" %>
+    </div>
+  </div>
+</div>
+</div> <!-- end row -->
+<% end %>
+<br>

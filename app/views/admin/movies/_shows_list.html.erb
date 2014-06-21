@@ -16,24 +16,11 @@
         <td><%= show.start %></td>
         <td><%= number_to_currency show.price %></td>
         <td><%= show.screen_id %></td>
+        <td><%= link_to 'Show', [:admin, @movie, show] %></td>
+        <td><%= link_to 'Edit', edit_admin_movie_show_path(@movie, show) %></td>
+        <td><%= link_to 'Destroy', [:admin, @movie, show], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<h3>Add show</h3>
-<%= simple_form_for [:admin, @movie, @new_show] do |f| %>
-
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :start %>
-    <%= f.input :price %>
-    <%= f.input :screen_id %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
-<br>
