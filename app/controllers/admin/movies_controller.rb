@@ -13,6 +13,8 @@ class Admin::MoviesController < ApplicationController
   # GET /movies/1.json
   def show
     @shows = @movie.shows
+    @show = Show.new
+    @show.movie_id = @movie.id
     #@new_show = @movie.shows.build()
   end
 

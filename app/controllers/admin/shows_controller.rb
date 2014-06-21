@@ -9,12 +9,17 @@ class Admin::ShowsController < ApplicationController
     respond_to do |format|
       if @show.save
         format.html { redirect_to [:admin, @show.movie], notice: 'Show was successfully added' }
-        format.json { render :show, status: :created, location: [:admin, @movie]}
+        format.json { render :show, status: :created, location: [:admin, @show.movie]}
       else
+        flash['error'] = 'There was a problem creating show'
         format.html { redirect_to [:admin, @show.movie]}
         format.json { render json: @show.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
+    @movie = Movie.find(@show.movie_id) #todo, pessimo
   end
 
   def destroy
@@ -22,8 +27,21 @@ class Admin::ShowsController < ApplicationController
     @movie_id = @show.movie_id
     @show.destroy
     respond_to do |format|
-      format.html { redirect_to admin_movie_url @movie_id, notice: 'Show cancelled' }
+      flash['success'] = 'Show cancelled' 
+      format.html { redirect_to admin_movie_url @movie_id}
       format.json { head :no_content }
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @show.update(shows_params)
+        format.html { redirect_to [:admin, @show.movie], notice: 'Movie was successfully updated.' }
+        format.json { render :show, status: :ok, location: [:admin, @show.movie] }
+      else
+        format.html { render :edit }
+        format.json { render json: @show.errors, status: :unprocessable_entity }
+      end
     end
   end
 
