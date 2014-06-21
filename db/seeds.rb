@@ -20,7 +20,6 @@ movies = [
 	['Kiki\'s delivery service', 1989, 102, 'Japan', 'Very beautiful movie about leaving home and making friends']
 ]
 
-
 movies.each do |title, year, length, country, desc|
 	Movie.create({title: title, year:year, description: desc, country: country, length:length})	
 end
@@ -38,3 +37,15 @@ shows = [
 shows.each do |movie, datetime, price, screen|
 	Show.create({movie_id:movie, start: datetime, price:price, screen_id:screen})
 end
+
+purchase1 = Purchase.new(name: "Gabriele Viglianisi")
+purchase1.gen_secret
+purchase1.save!
+
+purchase2 = Purchase.new(name: "Riccardo Di Lorenzo")
+purchase2.gen_secret
+purchase2.save!
+
+ticket1 = Ticket.create(show_id:1, seat:"1C", purchase_id:purchase1.id)
+ticket2 = Ticket.create(show_id:1, seat:"2C", purchase_id:purchase1.id)
+ticket3 = Ticket.create(show_id:2, seat:"1B", purchase_id:purchase2.id)

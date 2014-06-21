@@ -1,0 +1,28 @@
+<h1 class="page-header">Show: <%= @show.id %></h1>
+<p>
+Starts: <%= @show.start %><br>
+Price: <%= number_to_currency @show.price %><br>
+Screen: <%= @show.screen_id %>
+</p>
+
+<h2>Tickets for current show</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>seat</th>
+      <th>purchase_id</th>
+      <th>purchaser</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.seat %></td>
+        <td><%= ticket.purchase_id %></td>
+        <td><%= ticket.purchase.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

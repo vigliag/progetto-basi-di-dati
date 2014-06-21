@@ -3,6 +3,10 @@ class Admin::ShowsController < ApplicationController
   before_action :set_show, only: [:show, :edit, :update, :destroy]
   layout "admin"
 
+  def show
+    @tickets = @show.tickets.includes(:purchase)
+  end
+
   def create
     @show = Show.new(shows_params)
     @show.movie_id = params[:movie_id]
