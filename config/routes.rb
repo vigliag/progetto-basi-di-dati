@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'rails/s'
+
   devise_for :admins
   namespace :admin do
   get 'dashboard/index'
@@ -63,7 +66,7 @@ Rails.application.routes.draw do
       root 'dashboard#index'
     # Directs /admin/products/* to Admin::ProductsController
     # (app/controllers/admin/products_controller.rb)
-    resources :products
+      resources :movies
   end
 
 end
