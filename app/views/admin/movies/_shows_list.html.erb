@@ -14,7 +14,7 @@
     <% @shows.each do |show| %>
       <tr>
         <td><%= show.start %></td>
-        <td><%= show.price %></td>
+        <td><%= number_to_currency show.price %></td>
         <td><%= show.screen_id %></td>
       </tr>
     <% end %>
