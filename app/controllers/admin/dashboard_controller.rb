@@ -3,4 +3,8 @@ class Admin::DashboardController < ApplicationController
   layout "admin"
   def index
   end
+
+  def shows_params
+      params.require(:show).permit(:movie_id, :start, :price, :screen_id)
+    end
 end

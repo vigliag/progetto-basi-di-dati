@@ -63,10 +63,12 @@ Rails.application.routes.draw do
   #   end
 
   namespace :admin do
-      root 'dashboard#index'
+      root 'dashboard#index', as: 'dashboard'
     # Directs /admin/products/* to Admin::ProductsController
     # (app/controllers/admin/products_controller.rb)
-      resources :movies
+      resources :movies do
+        resources :shows
+      end
   end
 
 end

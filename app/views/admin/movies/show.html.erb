@@ -1,13 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @movie.title %>
-</p>
+<h1>Movie : <%= @movie.title %></h1>
 
 <p>
   <strong>Length:</strong>
-  <%= @movie.length %>
+  <%= @movie.length %> minutes
 </p>
 
 <p>
@@ -24,6 +19,8 @@
   <strong>Country:</strong>
   <%= @movie.country %>
 </p>
+
+<%= render "shows_list" %>
 
 <%= link_to 'Edit', edit_admin_movie_path(@movie) %> |
 <%= link_to 'Back', admin_movies_path %>
