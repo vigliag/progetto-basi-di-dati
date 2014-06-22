@@ -4,6 +4,10 @@ Starts: <%= @show.start %><br>
 Price: <%= number_to_currency @show.price %><br>
 Screen: <%= @show.screen_id %>
 </p>
+<p>
+Avaiable Seats:
+<%= @show.avaiable_seats %>
+</p>
 
 <h2>Tickets for current show</h2>
 <%= render 'admin/tickets/list' %>

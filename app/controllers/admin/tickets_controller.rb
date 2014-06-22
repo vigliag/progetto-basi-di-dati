@@ -8,7 +8,7 @@ class Admin::TicketsController < ApplicationController
   	@ticket_secret = params[:secret]
   	if @ticket_secret
   		@purchase = Purchase.includes(:tickets).where('purchases.secret' => @ticket_secret).first()
-  		@tickets = @purchase.tickets
+  		@tickets = @purchase.tickets if @purchase
   	else
   		@purchase = false
   	end

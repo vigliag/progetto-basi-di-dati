@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140622062106) do
+ActiveRecord::Schema.define(version: 20140622082506) do
 
   create_table "admin_movies", force: true do |t|
     t.string   "title"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 20140622062106) do
   create_table "purchases", force: true do |t|
     t.string   "name"
     t.string   "secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "screens", force: true do |t|
+    t.boolean  "avaiable"
+    t.text     "seats_string"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,11 @@
+class Screen < ActiveRecord::Base
+	has_many :shows
+
+	def seats
+		read_attribute(:seats_string).split(" ")
+	end
+
+	def seats=(seats_array)
+		write_attribute(:seats_string, seats_array.join(" "))
+	end
+end

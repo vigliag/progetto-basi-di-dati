@@ -15,6 +15,7 @@ class Admin::MoviesController < ApplicationController
     @shows = Show.select("shows.*, count(tickets.id) as ticket_count")
       .where(movie_id: @movie.id)
       .joins("left outer join tickets on tickets.show_id = shows.id")
+      .includes(:screen)
       .group('shows.id')
     #@shows = @movie.shows
     @show = Show.new

@@ -1,11 +1,12 @@
 <table class="table">
   <thead>
     <tr>
-      <th>starts</th>
-      <th>movie</th>
-      <th>price</th>
-      <th>screen</th>
-      <th>tickets sold</th>
+      <th>Starts</th>
+      <th>Movie</th>
+      <th>Price</th>
+      <th>Screen</th>
+      <th>Tickets Sold</th>
+      <th>Avaiable seats</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= number_to_currency show.price %></td>
         <td><%= show.screen_id %></td>
         <td><%= show.ticket_count %> </td>
+        <td><%= show.avaiable_seats.length %></td>
         <td>
         <%= link_to 'Show', [:admin, show.movie, show], class: "btn btn-default btn-sm" %>
         <%= link_to 'Edit', edit_admin_movie_show_path(show.movie, show), class: "btn btn-default btn-sm" %>
