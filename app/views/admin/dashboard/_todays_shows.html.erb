@@ -1,8 +1,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th>date</th>
-      <th>time</th>
+      <th>starts</th>
+      <th>movie</th>
       <th>price</th>
       <th>screen</th>
       <th>tickets sold</th>
@@ -13,8 +13,8 @@
   <tbody>
     <% @shows.each do |show| %>
       <tr>
-        <td><%= show.start.to_date.to_s(:date) %></td>
-        <td><%= show.start.strftime("%H:%m") %></td>
+        <td><%= show.start.to_s(:time) %></td>
+        <td><%= link_to show.movie.title, [:admin, show.movie] %></td>
         <td><%= number_to_currency show.price %></td>
         <td><%= show.screen_id %></td>
         <td><%= show.ticket_count %> </td>
@@ -27,4 +27,3 @@
     <% end %>
   </tbody>
 </table>
-
