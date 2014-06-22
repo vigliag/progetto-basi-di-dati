@@ -1,5 +1,9 @@
 <h1 class="page-header">Movie : <%= @movie.title %></h1>
-
+<div class="row">
+<div class="col-sm-3">
+<%= image_tag @movie.poster.url, width: "100%" %>
+</div>
+<div class="col-sm-9">
 <p>
   <strong>Length:</strong>
   <%= @movie.length %> minutes
@@ -19,9 +23,13 @@
   <strong>Country:</strong>
   <%= @movie.country %>
 </p>
+<%= link_to 'Edit Movie', edit_admin_movie_path(@movie), class: "btn btn-primary" %>
+<%= link_to 'Back', admin_movies_path, class: "btn btn-default" %>
+</div>
 
-<%= link_to 'Edit', edit_admin_movie_path(@movie) %> |
-<%= link_to 'Back', admin_movies_path %>
+</div>
+
+
 
 <%= render "shows_list" %>
 <%= render :partial => "admin/shows/form" %>

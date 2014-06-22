@@ -1,4 +1,9 @@
-<%= simple_form_for [:admin, @movie] do |f| %>
+<%= simple_form_for [:admin, @movie] , :html => {:multipart => true },  wrapper_mappings: {
+    check_boxes: :vertical_radio_and_checkboxes,
+    radio_buttons: :vertical_radio_and_checkboxes,
+    file: :vertical_file_input,
+    boolean: :vertical_boolean
+  } do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -7,6 +12,7 @@
     <%= f.input :year %>
     <%= f.input :description %>
     <%= f.input :country %>
+    <%= f.input :poster, as: :file%>
   </div>
 
   <div class="form-actions">

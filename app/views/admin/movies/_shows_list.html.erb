@@ -18,9 +18,11 @@
         <td><%= number_to_currency show.price %></td>
         <td><%= show.screen_id %></td>
         <td><%= show.ticket_count %> </td>
-        <td><%= link_to 'Show', [:admin, @movie, show] %></td>
-        <td><%= link_to 'Edit', edit_admin_movie_show_path(@movie, show) %></td>
-        <td><%= link_to 'Destroy', [:admin, @movie, show], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        <%= link_to 'Show', [:admin, @movie, show], class: "btn btn-default btn-sm" %>
+        <%= link_to 'Edit', edit_admin_movie_show_path(@movie, show), class: "btn btn-default btn-sm" %>
+        <%= link_to 'Destroy', [:admin, @movie, show], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
