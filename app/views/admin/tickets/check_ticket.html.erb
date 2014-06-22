@@ -1,0 +1,24 @@
+<h1 class="page-header">Check Ticket Code</h1>
+<%= form_tag({controller: "admin/tickets", action: "check_ticket"}, method: "get", class: "form-inline") do%>
+ <div class="form-group">
+    <label for="inputPassword" class="sr-only control-label">Ticket Code:</label>
+    <div>
+      <input type="search" name="secret" class="form-control" placeholder="Ticket Code"></input>
+    </div>
+ </div>
+ <button type="submit" class="btn btn-default">Submit</button>
+<% end %>
+
+<% if params[:secret] %>
+
+	<% if @purchase %>
+
+	<h2>Tickets for purchase <%= @purchase.id %> <%= @purchase.secret %></h2>
+	<% if not @tickets %>
+		<p>No ticket found</p>
+	<% else %>
+		<%= render 'list' %>
+	<% end %>
+
+	<% end %>
+<% end %>

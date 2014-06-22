@@ -7,7 +7,7 @@ class Purchase < ActiveRecord::Base
 		Purchase.new(secret: SecureRandom.hex(3))
 	end
 
-	def gen_secret
-		@secret = SecureRandom.hex(3)
+	def gen_secret!
+		write_attribute(:secret, SecureRandom.hex(3))
 	end
 end

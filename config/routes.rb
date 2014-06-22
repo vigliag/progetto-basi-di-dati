@@ -64,6 +64,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
       root 'dashboard#index', as: 'dashboard'
+      get "check_ticket", to: "tickets#check_ticket", as: "check_ticket"
     # Directs /admin/products/* to Admin::ProductsController
     # (app/controllers/admin/products_controller.rb)
       resources :movies do

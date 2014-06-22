@@ -39,11 +39,11 @@ shows.each do |movie, datetime, price, screen|
 end
 
 purchase1 = Purchase.new(name: "Gabriele Viglianisi")
-purchase1.gen_secret
+purchase1.secret = '1234a'
 purchase1.save!
 
 purchase2 = Purchase.new(name: "Riccardo Di Lorenzo")
-purchase2.gen_secret
+purchase2.gen_secret!
 purchase2.save!
 
 ticket1 = Ticket.create(show_id:1, seat:"1C", purchase_id:purchase1.id)
