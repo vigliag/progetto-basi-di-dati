@@ -16,8 +16,8 @@
 Admin.create(email: 'admin@example.com', password: 'sushi123', password_confirmation: 'sushi123')
 
 movies = [
-	['Spirited Away', 2001, 124, 'Japan', 'Oscar-Winner movie from Myazaki', File.new("#{Rails.root}/db/seeds/spirited_away.jpg")],
-	['Kiki\'s delivery service', 1989, 102, 'Japan', 'Very beautiful movie about leaving home and making friends', File.new("#{Rails.root}/db/seeds/spirited_away.jpg")]
+    ['Spirited Away', 2001, 124, 'Japan', 'Oscar-Winner movie from Myazaki', File.new("#{Rails.root}/db/seeds/spirited_away.jpg")],
+    ['Kiki\'s delivery service', 1989, 102, 'Japan', 'Very beautiful movie about leaving home and making friends', File.new("#{Rails.root}/db/seeds/spirited_away.jpg")]
 ]
 
 movies.each do |title, year, length, country, desc, poster|
@@ -46,7 +46,7 @@ purchase1.secret = '1234a'
 purchase1.save!
 
 purchase2 = Purchase.new(name: "Riccardo Di Lorenzo")
-purchase2.gen_secret!
+purchase2.secret = '1234a'
 purchase2.save!
 
 ticket1 = Ticket.create(show_id:1, seat:"C1", purchase_id:purchase1.id)
