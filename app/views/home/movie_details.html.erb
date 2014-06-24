@@ -1,0 +1,30 @@
+<h1 class="page-header">Movie : <%= @movie.title %></h1>
+<div class="row">
+<div class="col-sm-3">
+<%= image_tag @movie.poster.url, width: "100%" %>
+</div>
+<div class="col-sm-9">
+<p>
+  <strong>Length:</strong>
+  <%= @movie.length %> minutes
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @movie.year %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @movie.description %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @movie.country %>
+</p>
+</div>
+</div>
+
+<h2>Shows for movie</h2>
+

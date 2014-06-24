@@ -17,7 +17,7 @@ Admin.create(email: 'admin@example.com', password: 'sushi123', password_confirma
 
 movies = [
     ['Spirited Away', 2001, 124, 'Japan', 'Oscar-Winner movie from Myazaki', File.new("#{Rails.root}/db/seeds/spirited_away.jpg")],
-    ['Kiki\'s delivery service', 1989, 102, 'Japan', 'Very beautiful movie about leaving home and making friends', File.new("#{Rails.root}/db/seeds/spirited_away.jpg")]
+    ['Kiki\'s delivery service', 1989, 102, 'Japan', 'Very beautiful movie about leaving home and making friends', File.new("#{Rails.root}/db/seeds/kiki.jpg")]
 ]
 
 movies.each do |title, year, length, country, desc, poster|
@@ -42,7 +42,7 @@ shows.each do |movie, datetime, price, screen|
 end
 
 purchase1 = Purchase.new(name: "Gabriele Viglianisi")
-purchase1.secret = '1234a'
+purchase1.gen_secret!
 purchase1.save!
 
 purchase2 = Purchase.new(name: "Riccardo Di Lorenzo")

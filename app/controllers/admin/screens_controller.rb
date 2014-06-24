@@ -16,7 +16,7 @@ class Admin::ScreensController < ApplicationController
 
   # GET /admin/screens/new
   def new
-    @admin_screen = Screen.new
+    @screen = Screen.new
   end
 
   # GET /admin/screens/1/edit
@@ -26,15 +26,15 @@ class Admin::ScreensController < ApplicationController
   # POST /admin/screens
   # POST /admin/screens.json
   def create
-    @admin_screen = Screen.new(admin_screen_params)
+    @screen = Screen.new(admin_screen_params)
 
     respond_to do |format|
-      if @admin_screen.save
-        format.html { redirect_to @admin_screen, notice: 'Screen was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_screen }
+      if @screen.save
+        format.html { redirect_to [:admin, @screen], notice: 'Screen was successfully created.' }
+        format.json { render :show, status: :created, location: @screen }
       else
         format.html { render :new }
-        format.json { render json: @admin_screen.errors, status: :unprocessable_entity }
+        format.json { render json: @screen.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -71,6 +71,6 @@ class Admin::ScreensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_screen_params
-      params.require(:admin_screen).permit(:avaiable, :seats_string)
+      params.require(:screen).permit(:avaiable, :seats_string)
     end
 end

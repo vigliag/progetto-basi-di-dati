@@ -1,4 +1,25 @@
 <h2>Benvenuti</h2>
 
-<%= render "todays_shows" %>
-
+<%# render "todays_shows" %>
+<div class="row">
+<% @screens.each do |screen|
+	first_show = screen.first_show
+   	if first_show
+   		movie = first_show.movie %>
+	<div class="col-sm-6 col-md-3">
+	    <div class="thumbnail">      
+	      <div class="caption">
+	      	<%= link_to movie_details_path(id: movie.id) do %>
+	      	<%= image_tag movie.poster.url, width: "100%" %>
+	      	<% end %>
+	        <h4>Sala: <%= screen.id %> - <%= movie.title %></h4>
+	        <p><%= movie.description %></p>
+	        <p><a class="miobottone" href="#" class="btn btn-primary" role="button">Button</a></p>
+	      </div>
+	      
+	    </div>
+  	</div>
+<% end %>
+<% end %>
+</div>
+ .first.first_show.movie

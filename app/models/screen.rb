@@ -8,4 +8,8 @@ class Screen < ActiveRecord::Base
 	def seats=(seats_array)
 		write_attribute(:seats_string, seats_array.join(" "))
 	end
+
+	def first_show
+		shows().where("start >= :data", {data: DateTime.now}).order(start: :asc).first
+	end
 end
