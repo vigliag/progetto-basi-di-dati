@@ -17,7 +17,9 @@ Admin.create(email: 'admin@example.com', password: 'sushi123', password_confirma
 
 movies = [
     ['Spirited Away', 2001, 124, 'Japan', 'Oscar-Winner movie from Myazaki', File.new("#{Rails.root}/db/seeds/spirited_away.jpg")],
-    ['Kiki\'s delivery service', 1989, 102, 'Japan', 'Very beautiful movie about leaving home and making friends', File.new("#{Rails.root}/db/seeds/kiki.jpg")]
+    ['Kiki\'s delivery service', 1989, 102, 'Japan', 'Very beautiful movie about leaving home and making friends', File.new("#{Rails.root}/db/seeds/kiki.jpg")],
+    ['My Neighbour Totoro', 1988, 86, 'Japan', 'Everybody loves Totoro, you too', File.new("#{Rails.root}/db/seeds/totoro.jpg") ],
+    ['The Secret World of Arrietty', 2010, 95,'Japan', 'Sweet movie about a little girl and a friendship', File.new("#{Rails.root}/db/seeds/arrietty.jpg") ]
 ]
 
 movies.each do |title, year, length, country, desc, poster|
@@ -30,11 +32,20 @@ end
 
 Screen.create(avaiable: true, seats_string: "A1 A2 A3 B1 B2 B3 C1 C2 C3")
 Screen.create(avaiable: true, seats_string: "A1 A2 A3 B1 B2 B3 C1 C2 C3 D1 D2 D3")
+Screen.create(avaiable: true, seats_string: "A1 A2 A3")
 
 shows = [
       [1, DateTime.new(2014,06,30,15,20), 4, 1],
       [2, DateTime.new(2014,06,30,15,20), 8, 2],
-      [1, DateTime.new(2014,06,30,18,30), 16, 1]
+      [1, DateTime.new(2014,06,30,18,30), 16, 1],
+      [3, Time.now - 2.hours, 6, 1],
+      [3, Time.now + 3.hours, 6, 1],
+      [3, Time.now + 5.hours, 6, 1],
+      [3, Time.now + 9.hours, 6, 1],
+      [4, Time.now + 2.weeks, 10, 1],
+      [4, Time.now + 2.weeks, 10, 2],
+      [4, Time.now + 2.weeks + 2.hours, 10, 1],
+      [4, Time.now + 2.weeks + 2.days + 3.hours, 10, 2]
 ]
 
 shows.each do |movie, datetime, price, screen|

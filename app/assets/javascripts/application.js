@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore/underscore.js
 //= require turbolinks
 //= require bootstrap
 //= require moment
 //= require bootstrap-datetimepicker
 //= require admin/admin
+//= require home
