@@ -1,25 +1,28 @@
-<h2>Benvenuti</h2>
-
+<h1>Welcome to CinemAnime Cinema</h1>
+<h2>New + Coming Soon</h2>
 <%# render "todays_shows" %>
 <div class="row">
-<% @screens.each do |screen|
-	first_show = screen.first_show
-   	if first_show
-   		movie = first_show.movie %>
+<% if @movies
+	@movies.each do |movie| %>
 	<div class="col-sm-6 col-md-3">
 	    <div class="thumbnail">      
 	      <div class="caption">
 	      	<%= link_to movie_details_path(id: movie.id) do %>
-	      	<%= image_tag movie.poster.url, width: "100%" %>
+	      		<%= image_tag movie.poster.url, width: "100%" %>
 	      	<% end %>
-	        <h4>Sala: <%= screen.id %> - <%= movie.title %></h4>
+	        <h4>
+	        	<%= link_to movie_details_path(id: movie.id) do %>
+	      			<%= movie.title %>
+	      		<% end %>
+	      	</h4>
+	      	<p>Next Show: <%= movie.next_show.start.to_s(:short) %></p>
 	        <p><%= movie.description %></p>
-	        <p><a class="miobottone" href="#" class="btn btn-primary" role="button">Button</a></p>
 	      </div>
-	      
 	    </div>
   	</div>
 <% end %>
 <% end %>
 </div>
+
+<h2>Movies Calendar</h2>
 <div class="moviecalendar"></div>

@@ -43,12 +43,12 @@ class Admin::ScreensController < ApplicationController
   # PATCH/PUT /admin/screens/1.json
   def update
     respond_to do |format|
-      if @admin_screen.update(admin_screen_params)
-        format.html { redirect_to @admin_screen, notice: 'Screen was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_screen }
+      if @screen.update(admin_screen_params)
+        format.html { redirect_to @screen, notice: 'Screen was successfully updated.' }
+        format.json { render :show, status: :ok, location: @screen }
       else
         format.html { render :edit }
-        format.json { render json: @admin_screen.errors, status: :unprocessable_entity }
+        format.json { render json: @screen.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,7 +56,7 @@ class Admin::ScreensController < ApplicationController
   # DELETE /admin/screens/1
   # DELETE /admin/screens/1.json
   def destroy
-    @admin_screen.destroy
+    @screen.destroy
     respond_to do |format|
       format.html { redirect_to admin_screens_url, notice: 'Screen was successfully destroyed.' }
       format.json { head :no_content }
@@ -66,7 +66,7 @@ class Admin::ScreensController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_screen
-      @admin_screen = Screen.find(params[:id])
+      @screen = Screen.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

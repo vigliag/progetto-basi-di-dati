@@ -19,6 +19,6 @@ class Show < ActiveRecord::Base
 
 	def self.in_next_days(ndays)
 		where(start: DateTime.now.beginning_of_day.. (DateTime.now.end_of_day + ndays.days))
-			.order(:start)
+			.order(start: :asc)
 	end
 end

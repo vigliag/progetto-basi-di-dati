@@ -18,4 +18,4 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require admin/admin
-//= require home
+//= require home.js

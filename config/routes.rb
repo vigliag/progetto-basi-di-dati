@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   end
 
   get 'movie_calendar', to: "home#movie_calendar"
+  get 'buy_tickets/:show_id', to: "home#buy_tickets", as: :buy_tickets
+  post 'purchase', to: "home#purchase"
+  get "contacts", to: "home#contacts"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

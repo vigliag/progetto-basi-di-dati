@@ -1,0 +1,23 @@
+<% 
+   avaiable_seats = @show.avaiable_seats
+   seats_groups = @show.seats.group_by {|seat| seat[0]}
+   seats_groups.each do |k, grp| 
+ %>
+<p>
+<div class="btn-group seats-group" data-toggle="buttons">
+  <% grp.each do |seat| %>
+	  <% if avaiable_seats.include? seat %> 
+		  <label class="btn btn-default">
+		  	<%= check_box_tag 'seats[]', seat %>
+		    <%= seat %>
+		  </label>
+	  <% else %>
+		  <label class="btn btn-default disabled">
+		    <input type="checkbox" name="seats[]" disabled="disabled" > <%= seat %>
+		  </label>
+	  <% end %>
+  <% end %>
+</div>
+</p>
+
+ <% end %>
