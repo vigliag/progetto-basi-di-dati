@@ -17,4 +17,8 @@ class Show < ActiveRecord::Base
 		seats - taken_seats
 	end
 
+	def self.in_next_days(ndays)
+		where(start: DateTime.now.beginning_of_day.. (DateTime.now.end_of_day + ndays.days))
+			.order(:start)
+	end
 end

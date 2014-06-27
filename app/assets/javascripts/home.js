@@ -1,7 +1,7 @@
 function homeready(){
 	$('.moviecalendar').calendar({
     	tmpl_path: "bootstrap-calendar/tmpls/",
-    	events_source: function () { return []; },
+    	events_source: '/movie_calendar.json',
 		views: {
 			year: {
 			slide_events: 1,
